@@ -128,7 +128,7 @@ var Typeahead = React.createClass({
 
     return (
       <TypeaheadSelector
-        ref="sel" options={ this.state.visible }
+        ref="sel" options={ this.state.visible } selectionIndex={0}
         onOptionSelected={ this._onOptionSelected }
         customClasses={this.props.customClasses} />
    );
@@ -146,7 +146,8 @@ var Typeahead = React.createClass({
 
   _onTextEntryUpdated: function() {
     var value = this.refs.entry.getDOMNode().value;
-    this.setState({visible: this.getOptionsForValue(value, this.props.options),
+    var options = this.getOptionsForValue(value, this.props.options);
+    this.setState({visible: options,
                    selection: null,
                    entryValue: value});
   },

@@ -24,6 +24,7 @@ var TypeaheadTokenizer = React.createClass({
     placeholder: React.PropTypes.string,
     inputProps: React.PropTypes.object,
     onTokenRemove: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func,
     onTokenAdd: React.PropTypes.func,
     filterOption: React.PropTypes.func,
     maxVisible: React.PropTypes.number
@@ -77,6 +78,8 @@ var TypeaheadTokenizer = React.createClass({
   _onKeyDown: function(event) {
     // We only care about intercepting backspaces
     if (event.keyCode !== KeyEvent.DOM_VK_BACK_SPACE) {
+      if (this.props.onKeyDown)
+        this.props.onKeyDown(event);
       return;
     }
 
