@@ -128,7 +128,7 @@ var Typeahead = React.createClass({
 
     return (
       <TypeaheadSelector
-        ref="sel" options={ this.state.visible } selectionIndex={0}
+        ref="sel" options={ this.state.visible } selectionIndex={0} selection={this.state.visible[0]}
         onOptionSelected={ this._onOptionSelected }
         customClasses={this.props.customClasses} />
    );

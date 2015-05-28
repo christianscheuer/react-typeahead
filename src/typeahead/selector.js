@@ -119,10 +119,7 @@ var TypeaheadSelector = React.createClass({
   },
 
   componentWillReceiveProps: function(props){
-    if (this.state.selectionIndex === null && props.options && props.options.length > 0)
-    {
-      this.setState({selectionIndex: 0, selection: props.options[0]});
-    }
+    this.setState({selectionIndex: 0, selection: props.options[0]});
   },
 
   navDown: function() {
